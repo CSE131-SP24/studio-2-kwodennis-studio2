@@ -16,34 +16,35 @@ public class Ruin {
 		int timesPlayed = 0;
 		System.out.println("totalSimulations? ");
 		int totalSimulations = in.nextInt();
+		int currentAmount = 0;
 		
 		for (int i = 0; i < totalSimulations; i++)
 				{
-				while ((startAmount > 0) && (startAmount < winLimit))
+				while ((currentAmount > 0) && (currentAmount < winLimit))
 		{
 			if (winChance > Math.random()) 
 			{
-				startAmount++; 
+				currentAmount++; 
 				timesPlayed++;
 				
 			}
 			else 
 			{
-				startAmount--;
+				currentAmount--;
 				timesPlayed++;
 			}
 		}
 		
-		if (startAmount == 0)
+		if (currentAmount == 0)
 		{
 			System.out.println("Simulation: "+ i + " " + timesPlayed + " LOSE" );	
-			timesPlayed = startAmount;
+			currentAmount = startAmount;
 		}
 		
-		if (startAmount == winLimit)
+		if (currentAmount == winLimit)
 		{
 			System.out.println("Simulation: " + i + " " + timesPlayed + " WIN" );	
-			timesPlayed = startAmount; 
+			currentAmount = startAmount; 
 
 		}
 				}	
